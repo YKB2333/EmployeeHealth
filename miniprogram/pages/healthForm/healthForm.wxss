@@ -1,0 +1,18 @@
+.title{
+  font-size: 42rpx;
+  margin: 10rpx 0 20rpx 38rpx;
+}
+.temperature_input input{
+  text-align: right;
+}
+.radio_style{
+  margin-right: 60rpx;
+}
+.healthForm_btn{
+  width:80%;
+  margin: 60rpx auto;
+}
+.checkbox_Falv{
+  font-size: 30rpx;
+  margin:0 0 10rpx 0;
+}

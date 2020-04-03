@@ -1,0 +1,28 @@
+<view class="title">健康申报</view>
+<van-radio-group value="{{ radio_Fali }}" bind:change="onChangeFali">
+  <van-cell-group>
+    <van-cell title="姓名" value="内容" />
+    <van-cell title="单位" value="内容" />
+    <van-field class="temperature_input" value="{{ temperature }}" required clearable label="温度" placeholder="请输入用温度" />
+    <van-cell title="是否乏力" clickable data-name="1" bind:click="onClick">
+      <van-radio class="radio_style" slot="right-icon" name="1" label-position="left">是</van-radio>
+      <van-radio slot="right-icon" name="2" label-position="left">否</van-radio>
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+<van-radio-group value="{{ radio_Ganmao }}" bind:change="onChangeGanmao">
+  <van-cell-group>
+    <van-cell title="是否感冒" clickable data-name="2" bind:click="onClick">
+      <van-radio class="radio_style" slot="right-icon" name="1" label-position="left">是</van-radio>
+      <van-radio slot="right-icon" name="2" label-position="left">否</van-radio>
+    </van-cell>
+    <van-field value="{{ message }}" label="其他症状" type="textarea" placeholder="请输入身体情况" autosize border="{{ false }}" placeholder-style="padding-left:50rpx;" />
+  </van-cell-group>
+</van-radio-group>
+
+<view class="healthForm_btn">
+<view class="checkbox_Falv">
+<van-checkbox  value="{{ checked }}" bind:change="onChangeFalv" shape="square">我已知虚假信息需要承担相应的法律责任</van-checkbox>
+</view>
+  <van-button block type="info">提交</van-button>
+</view>

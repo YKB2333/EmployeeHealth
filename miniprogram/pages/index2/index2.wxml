@@ -1,0 +1,8 @@
+<view class="title">xxx企业健康上报工具</view>
+<view class="word">每天一上报,健康你我他</view>
+<van-row custom-class="btn">
+  <van-col span="20" offset="2">
+    <van-button type="primary" block bind:click="jump">我要填写</van-button>
+  </van-col>
+</van-row>
+

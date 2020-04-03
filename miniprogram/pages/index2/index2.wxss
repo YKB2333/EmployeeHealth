@@ -1,0 +1,12 @@
+/* miniprogram/pages/index2/index2.wxss */
+.title{
+  text-align: center;
+  margin:60px 0 20px;
+}
+.word{
+  text-align: center;
+  margin:0 0;
+}
+.btn{
+  margin: 140px 0 0 0 ;
+}

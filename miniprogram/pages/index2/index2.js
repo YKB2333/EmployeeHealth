@@ -12,7 +12,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求
+          // console.log(res.code)
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 
   /**
@@ -20,21 +29,26 @@ Page({
    */
   onReady: function () {
     let db = wx.cloud.database();
-    db.collection("staff_info").get().then(res=>console.log(res))
-  },
+    // db.collection("staff_info").get().then(res=>console.log(res));
+    // wx.chooseImage({//选择本地图片
+    //   success(res) {
+    //     const tempFilePaths = res.tempFilePaths;
+    //     wx.cloud.uploadFile({//上传到云存储
+    //       cloudPath:"123.png",
+    //       filePath: tempFilePaths[0],
+    //       success(res) {
+    //         wx.cloud.callFunction({//传输给云函数,在云函数使用
+    //           name:"getid",
+    //           data:{
+    //             file: res.fileID
+    //           }
+    //         }).then(e=>console.log(e))
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+    //         //do something
+    //       }
+    //     })
+    //   }
+    // })
   },
 
   /**
@@ -81,6 +95,19 @@ Page({
         wx.navigateTo({
           url: '../deployFunctions/deployFunctions',
         })
+      }
+    })
+  },
+  getPhoneNumber(e) {//手机号登录:调用手机号与数据库中进行对比
+  console.log(e)
+    wx.cloud.callFunction({
+      name: 'getphone',
+      data: {
+        action: 'getcellphone',
+        id: e.detail.cloudID
+      },
+      success: res => {
+        console.log(res)
       }
     })
   }
